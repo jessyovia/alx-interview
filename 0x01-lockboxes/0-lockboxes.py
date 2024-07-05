@@ -1,30 +1,37 @@
 #!/usr/bin/python3
 """
-Module to determine if all boxes can be opened
+Module for solving the lockboxes problem.
 """
 
 
 def canUnlockAll(boxes):
-    """
-    Determines if all boxes can be opened
+    """Determines if all boxes can be opened.
 
     Args:
-        boxes (list of list of int): List of lists where each sublist contains keys.
+        boxes (list of list of int): Lists of integers representing boxes
+                                     and their respective keys.
 
     Returns:
         bool: True if all boxes can be opened, False otherwise.
     """
-    n = len(boxes)
-    unlocked_boxes = set([0])
-    keys = set(boxes[0])
-    stack = [0]
+    if not boxes:
+        return False
 
-    while stack:
-        current_box = stack.pop()
-        for key in boxes[current_box]:
-            if key < n and key not in unlocked_boxes:
-                unlocked_boxes.add(key)
-                stack.append(key)
-                keys.update(boxes[key])
+    keys = [0]
+    for key in keys:
+        for box in boxes[key]:
+            if box not in keys and box < len(boxes):
+                keys.append(box)
 
-    return len(unlocked_boxes) == n
+    return len(keys) == len(boxes)
+
+
+if __name__ == "__main__":
+    boxes = [[1], [2], [3], [4], []]
+    print(canUnlockAll(boxes))
+
+    boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
+    print(canUnlockAll(boxes))
+
+    boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
+    print(canUnlockAll(boxes))
