@@ -16,4 +16,4 @@ This project involves calculating the fewest number of operations needed to resu
 ## Function Prototype
 
 ```python
-def minOperations(n)
+def minOperations(n). 
