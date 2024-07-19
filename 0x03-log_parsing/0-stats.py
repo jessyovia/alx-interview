@@ -16,6 +16,7 @@ status_counts = {
 }
 line_count = 0
 
+
 def print_stats():
     """Prints the statistics"""
     print(f"File size: {total_file_size}")
@@ -24,10 +25,12 @@ def print_stats():
         if count > 0:
             print(f"{status_code}: {count}")
 
+
 def signal_handler(sig, frame):
     """Handles the keyboard interruption signal"""
     print_stats()
     sys.exit(0)
+
 
 # Register the signal handler
 signal.signal(signal.SIGINT, signal_handler)
@@ -35,7 +38,7 @@ signal.signal(signal.SIGINT, signal_handler)
 try:
     for line in sys.stdin:
         parts = line.split()
-        if len(parts) != 9:
+        if len(parts) < 7:
             continue
 
         try:
