@@ -6,7 +6,16 @@ import re
 
 # Initialize variables
 total_size = 0
-status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+status_codes = {
+    200: 0,
+    301: 0,
+    400: 0,
+    401: 0,
+    403: 0,
+    404: 0,
+    405: 0,
+    500: 0
+}
 line_count = 0
 
 
@@ -32,6 +41,7 @@ log_pattern = re.compile(
     r'(?P<status>\d{3}) (?P<size>\d+)'
 )
 
+
 # Read from stdin
 for line in sys.stdin:
     match = log_pattern.match(line)
@@ -47,6 +57,7 @@ for line in sys.stdin:
 
         if line_count % 10 == 0:
             print_stats()
+
 
 # Print final stats if the loop ends without an interrupt
 print_stats()
