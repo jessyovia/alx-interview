@@ -1,0 +1,54 @@
+# N Queens Problem
+
+## Overview
+The N Queens problem is a classic computer science problem that involves placing N non-attacking queens on an N×N chessboard. This project provides a solution to the N Queens problem using a backtracking algorithm.
+
+## Requirements
+- **Editors**: vi, vim, emacs
+- **Operating System**: Ubuntu 20.04 LTS
+- **Python Version**: 3.4.3
+- **PEP 8**: Code adheres to PEP 8 style guidelines
+- **Execution**: All files are executable and should end with a new line
+- **Shebang**: The first line of all files should be exactly `#!/usr/bin/python3`
+
+## Files
+- **0-nqueens.py**: This script solves the N Queens problem.
+- **README.md**: Project documentation.
+
+## Usage
+To run the script, use the following command:
+```bash
+./0-nqueens.py N
+```
+where `N` is the size of the chessboard and must be an integer greater than or equal to 4.
+
+## Example
+```bash
+$ ./0-nqueens.py 4
+[[0, 1], [1, 3], [2, 0], [3, 2]]
+[[0, 2], [1, 0], [2, 3], [3, 1]]
+```
+
+## Error Handling
+- If the user provides the wrong number of arguments:
+  ```bash
+  Usage: nqueens N
+  ```
+- If `N` is not an integer:
+  ```bash
+  N must be a number
+  ```
+- If `N` is smaller than 4:
+  ```bash
+  N must be at least 4
+  ```
+
+## Algorithm
+The solution uses a backtracking algorithm to place queens on the board. It recursively places queens one column at a time, ensuring that no two queens can attack each other. The `is_safe` function checks whether a queen can be placed at a given position without being attacked. The `solve_nqueens_util` function is a utility function that tries to solve the problem by placing queens in columns recursively.
+
+## License
+This project is licensed under the MIT License.
+
+## Author
+Jessica Oviahon
+```
